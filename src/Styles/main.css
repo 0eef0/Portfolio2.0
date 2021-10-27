@@ -289,17 +289,34 @@ div#navbar {
   /* IE10+/Edge */
   user-select: none;
   /* Standard */
-  width: 20vw;
+  transition: width 0.3s;
+  z-index: 10000;
+  position: fixed;
+  width: 3vw;
   height: 100vh;
   display: flex;
   justify-content: flex-start;
   background-color: #222222;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+div#navbar:hover {
+  width: 20vw;
+}
+div#navbar:hover div {
+  transform: skew(-10deg);
+  display: block;
+}
+div#navbar:hover div.primary {
+  width: 20%;
+  box-shadow: none;
+}
 div#navbar div {
-  width: 25%;
+  display: none;
+  width: 20%;
+  min-width: 50px;
   height: 100vh;
-  transform: skew(-15deg);
+  transform: skew(0);
+  transition: transform 0.3s;
 }
 div#navbar div:nth-child(4n+1) {
   background-color: #568e90;
@@ -314,7 +331,7 @@ div#navbar div:nth-child(4n+4) {
   background-color: #395f60;
 }
 div#navbar div h1 {
-  transform: rotate(-90deg) skew(-15deg);
+  transform: rotate(-90deg);
   font-size: calc(2vh + 2vw);
   text-align: right;
   display: block;
@@ -332,16 +349,95 @@ div#navbar div::after {
   transition: height 0.3s;
   z-index: -1;
 }
+div#navbar div.primary {
+  display: block;
+  width: 100%;
+  box-shadow: 1vw 0 1vw 0.1vw black;
+}
 div#navbar div:hover::after {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.1);
 }
 div#navbar div:first-child {
-  box-shadow: -1vw 0 1vw 0.1vw black;
+  box-shadow: -1vw 0 1vw 0.1vw black !important;
 }
 div#navbar div:last-child {
-  box-shadow: 1vw 0 1vw 0.1vw black;
+  box-shadow: 1vw 0 1vw 0.1vw black !important;
+}
+
+div.homeDiv {
+  position: absolute;
+  left: 8vw;
+  transform: skew(-10deg);
+  height: 100vh;
+  justify-content: center;
+  align-content: flex-end;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: column;
+}
+div.homeDiv div {
+  margin: 1vw;
+  width: 40vw;
+  height: 40vh;
+  padding: 3vw;
+  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
+  border: 2px solid black;
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+  animation-fill-mode: forwards;
+  transform: translateX(-100vw);
+  overflow: hidden;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+div.homeDiv div *,
+div.homeDiv div *::after,
+div.homeDiv div *::before {
+  transform: skew(10deg) !important;
+}
+div.homeDiv div img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+div.homeDiv div h1 {
+  font-size: calc(2vw + 2vh);
+}
+div.homeDiv div ul {
+  list-style-type: circle;
+}
+div.homeDiv div ul li {
+  transform: skew(0) !important;
+}
+div.homeDiv div p,
+div.homeDiv div li {
+  font-size: calc(1vw + 1vh);
+}
+
+.homeDiv div:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.homeDiv div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.homeDiv div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.homeDiv div:nth-child(4) {
+  animation-delay: 0.6s;
 }
 
 /*# sourceMappingURL=main.css.map */

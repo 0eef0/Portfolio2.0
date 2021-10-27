@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './Components/Navbar';
-import { Route, Switch } from "react-router-dom";
+import Home from './Components/Home';
 
 const App = () => {
+    const [currPage, setCurrPage] = useState('home');
+
     return (
         <div>
             <Navbar />
+            <Home />
         </div>
     )
 }

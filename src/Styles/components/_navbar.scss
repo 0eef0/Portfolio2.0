@@ -9,16 +9,33 @@ div#navbar {
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 
-  width: 20vw;
+  transition: width 0.3s;
+  z-index: 10000;
+  position: fixed;
+  width: 3vw;
   height: 100vh;
   display: flex;
   justify-content: flex-start;
   background-color: #222222;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  &:hover {
+    width: 20vw;
+    div {
+      transform: skew(-10deg);
+      display: block;
+    }
+    div.primary {
+      width: 20%;
+      box-shadow: none;
+    }
+  }
   div {
-    width: 25%;
+    display: none;
+    width: 20%;
+    min-width: 50px;
     height: 100vh;
-    transform: skew(-15deg);
+    transform: skew(0);
+    transition: transform 0.3s;
     @for $i from 1 through 4 {
       &:nth-child(4n + #{$i}) {
         background-color: darken(cadetblue, $i * 5%);
@@ -26,7 +43,7 @@ div#navbar {
     }
 
     h1 {
-      transform: rotate(-90deg) skew(-15deg);
+      transform: rotate(-90deg);
       font-size: calc(2vh + 2vw);
       text-align: right;
       display: block;
@@ -46,6 +63,11 @@ div#navbar {
       z-index: -1;
     }
   }
+  div.primary {
+    display: block;
+    width: 100%;
+    box-shadow: 1vw 0 1vw 0.1vw black;
+  }
   div:hover {
     &::after {
       width: 100%;
@@ -54,9 +76,9 @@ div#navbar {
     }
   }
   div:first-child {
-    box-shadow: -1vw 0 1vw 0.1vw black;
+    box-shadow: -1vw 0 1vw 0.1vw black !important;
   }
   div:last-child {
-    box-shadow: 1vw 0 1vw 0.1vw black;
+    box-shadow: 1vw 0 1vw 0.1vw black !important;
   }
 }
