@@ -207,6 +207,20 @@ input[type=button] {
   clear: both;
 }
 
+@font-face {
+  font-family: newart;
+  /* Font by Pravdin */
+  src: url("../Utils/NEXT ART_Regular.otf");
+}
+* {
+  font-family: newart;
+}
+
+body,
+html {
+  overflow-x: hidden !important;
+}
+
 .container {
   width: 90vw;
   margin: 5rem 0;
@@ -292,7 +306,9 @@ div#navbar {
   transition: width 0.3s;
   z-index: 10000;
   position: fixed;
+  top: 0;
   width: 3vw;
+  min-width: 50px;
   height: 100vh;
   display: flex;
   justify-content: flex-start;
@@ -349,28 +365,44 @@ div#navbar div::after {
   transition: height 0.3s;
   z-index: -1;
 }
-div#navbar div.primary {
-  display: block;
-  width: 100%;
-  box-shadow: 1vw 0 1vw 0.1vw black;
-}
 div#navbar div:hover::after {
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.1);
 }
-div#navbar div:first-child {
+div#navbar div.primary {
+  display: block;
+  width: 100%;
+  box-shadow: 1vw 0 1vw 0.1vw black !important;
+}
+div#navbar div:first-of-type {
   box-shadow: -1vw 0 1vw 0.1vw black !important;
 }
-div#navbar div:last-child {
+div#navbar div:last-of-type {
   box-shadow: 1vw 0 1vw 0.1vw black !important;
+}
+div#navbar:hover section#mediaLinks {
+  display: flex;
+  flex-direction: column-reverse;
+}
+div#navbar section#mediaLinks {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5vw;
+}
+div#navbar section#mediaLinks a,
+div#navbar section#mediaLinks a:visited {
+  color: white;
+  font-size: 3vw;
 }
 
 div.homeDiv {
   position: absolute;
-  left: 8vw;
+  left: 100px;
   transform: skew(-10deg);
-  height: 100vh;
+  height: 100vh !important;
   justify-content: center;
   align-content: flex-end;
   display: flex;
@@ -380,21 +412,34 @@ div.homeDiv {
 div.homeDiv div {
   margin: 1vw;
   width: 40vw;
+  min-width: 250px;
   height: 40vh;
   padding: 3vw;
   box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
   border: 2px solid black;
-  animation: 0.5s ease-out 0s 1 slideInFromLeft;
-  animation-fill-mode: forwards;
+  animation: 0.5s ease-out 0s 1 homeSlideIn;
+  animation-fill-mode: forwards !important;
   transform: translateX(-100vw);
   overflow: hidden;
 }
-@keyframes slideInFromLeft {
+div.homeDiv div.leave {
+  transform: translateX(0);
+  animation: 0.5s ease-out 0s 1 homeSlideOut;
+}
+@keyframes homeSlideIn {
   0% {
     transform: translateX(-100vw);
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes homeSlideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
   }
 }
 div.homeDiv div *,
@@ -421,23 +466,314 @@ div.homeDiv div ul li {
 }
 div.homeDiv div p,
 div.homeDiv div li {
-  font-size: calc(1vw + 1vh);
+  font-size: calc(0.75vw + 0.75vh);
+}
+@media screen and (max-width: 720px) {
+  div.homeDiv {
+    display: block;
+    transform: skew(0deg) !important;
+  }
+  div.homeDiv div {
+    width: 80% !important;
+    transform: skew(-10deg) !important;
+    margin-top: 1rem;
+  }
+  div.homeDiv div *,
+div.homeDiv div *::after,
+div.homeDiv div *::before {
+    transform: skew(10deg) !important;
+  }
+  div.homeDiv div p,
+div.homeDiv div li {
+    font-size: calc(1.25vw + 1.25vh) !important;
+  }
 }
 
 .homeDiv div:nth-child(1) {
-  animation-delay: 0s;
+  animation-delay: 0s !important;
+}
+
+.homeDiv div.leave:nth-child(1) {
+  animation-delay: 0.8s !important;
 }
 
 .homeDiv div:nth-child(2) {
-  animation-delay: 0.2s;
+  animation-delay: 0.2s !important;
+}
+
+.homeDiv div.leave:nth-child(2) {
+  animation-delay: 0.6s !important;
 }
 
 .homeDiv div:nth-child(3) {
-  animation-delay: 0.4s;
+  animation-delay: 0.4s !important;
+}
+
+.homeDiv div.leave:nth-child(3) {
+  animation-delay: 0.4s !important;
 }
 
 .homeDiv div:nth-child(4) {
-  animation-delay: 0.6s;
+  animation-delay: 0.6s !important;
+}
+
+.homeDiv div.leave:nth-child(4) {
+  animation-delay: 0.2s !important;
+}
+
+div#contactDiv {
+  position: absolute;
+  left: 10vw;
+  transform: skew(-10deg);
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div#contactDiv div#emailForm {
+  width: 80vw;
+  height: 70vh;
+  border: 2px solid black;
+  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
+  animation-fill-mode: forwards !important;
+  transform: translateX(-100vw);
+}
+div#contactDiv div#emailForm *:focus {
+  outline: none;
+}
+div#contactDiv div#emailForm input {
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px solid black;
+  padding: 1vw;
+}
+div#contactDiv div#emailForm textarea {
+  width: 100%;
+  height: 80%;
+  padding: 1vw;
+  resize: none;
+  border-bottom: 2px solid black;
+}
+div#contactDiv div#emailForm button {
+  position: absolute;
+  bottom: 1vw;
+  border: 2px solid black;
+  right: 1vw;
+  width: 10%;
+  height: 5%;
+  padding: 0.1vw;
+  text-align: center;
+  animation: animate 1.5s ease-in infinite;
+}
+div#contactDiv div#emailForm button:hover {
+  animation: none;
+}
+@keyframes animate {
+  0% {
+    bottom: 1vw;
+  }
+  50% {
+    bottom: 1.5vw;
+  }
+  100% {
+    bottom: 1vw;
+  }
+}
+div#contactDiv div#emailForm.active {
+  animation: 0.5s ease-out 0s 1 contactSlideIn;
+}
+div#contactDiv div#emailForm.inactive {
+  animation: 0.5s ease-out 0s 1 contactSlideOut;
+}
+@keyframes contactSlideIn {
+  0% {
+    transform: translateX(-100vw);
+    display: block;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes contactSlideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+    display: none;
+  }
+}
+
+div.projectDiv {
+  position: absolute;
+  left: 50px;
+  transform: skew(-10deg);
+  width: 90vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+div.projectDiv div {
+  margin: 1vw;
+  width: 25vw;
+  min-width: 200px;
+  height: calc(15vw + 8vh);
+  padding: 0;
+  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
+  border: 2px solid black;
+  background-color: #222222;
+  animation-fill-mode: forwards !important;
+  transform: translateX(-100vw);
+  overflow: hidden;
+}
+div.projectDiv div.active {
+  animation: 0.5s ease-out 0s 1 projectSlideIn;
+}
+div.projectDiv div.inactive {
+  transform: translateX(0);
+  animation: 0.5s ease-out 0s 1 projectSlideOut;
+}
+@keyframes projectSlideIn {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes projectSlideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+    display: none !important;
+  }
+}
+div.projectDiv div *,
+div.projectDiv div *::after,
+div.projectDiv div *::before {
+  transform: skew(10deg) !important;
+}
+div.projectDiv div img {
+  height: 100%;
+  width: calc(100% + 4vw) !important;
+  object-fit: cover;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  box-shadow: 0.1vw 0 1vw 0.1vw black;
+}
+div.projectDiv div:hover div.info {
+  transform: skew(0deg) translateY(0%) !important;
+}
+div.projectDiv div div.info {
+  position: absolute;
+  transform: skew(0deg) translateY(100%) !important;
+  transition: transform 0.3s;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  padding: 1vw;
+  top: 0;
+  left: 0;
+}
+div.projectDiv div div.info h1 {
+  font-size: calc(2vw + 2vh);
+}
+div.projectDiv div div.info ul {
+  list-style-type: circle;
+}
+div.projectDiv div div.info ul li {
+  transform: skew(0) !important;
+}
+div.projectDiv div div.info p,
+div.projectDiv div div.info li {
+  font-size: calc(0.75vw + 0.75vh);
+}
+div.projectDiv div div.info button {
+  background-color: black;
+  color: white;
+  padding: 0.5vw;
+  transform: skew(-2.5deg) !important;
+  position: absolute;
+  bottom: 1vh;
+}
+
+.projectDiv div:nth-child(1) {
+  animation-delay: 0s !important;
+}
+
+.projectDiv div.inactive:nth-child(1) {
+  animation-delay: 1s !important;
+}
+
+.projectDiv div:nth-child(2) {
+  animation-delay: 0.11s !important;
+}
+
+.projectDiv div.inactive:nth-child(2) {
+  animation-delay: 0.89s !important;
+}
+
+.projectDiv div:nth-child(3) {
+  animation-delay: 0.22s !important;
+}
+
+.projectDiv div.inactive:nth-child(3) {
+  animation-delay: 0.78s !important;
+}
+
+.projectDiv div:nth-child(4) {
+  animation-delay: 0.33s !important;
+}
+
+.projectDiv div.inactive:nth-child(4) {
+  animation-delay: 0.67s !important;
+}
+
+.projectDiv div:nth-child(5) {
+  animation-delay: 0.44s !important;
+}
+
+.projectDiv div.inactive:nth-child(5) {
+  animation-delay: 0.56s !important;
+}
+
+.projectDiv div:nth-child(6) {
+  animation-delay: 0.55s !important;
+}
+
+.projectDiv div.inactive:nth-child(6) {
+  animation-delay: 0.45s !important;
+}
+
+.projectDiv div:nth-child(7) {
+  animation-delay: 0.66s !important;
+}
+
+.projectDiv div.inactive:nth-child(7) {
+  animation-delay: 0.34s !important;
+}
+
+.projectDiv div:nth-child(8) {
+  animation-delay: 0.77s !important;
+}
+
+.projectDiv div.inactive:nth-child(8) {
+  animation-delay: 0.23s !important;
+}
+
+.projectDiv div:nth-child(9) {
+  animation-delay: 0.88s !important;
+}
+
+.projectDiv div.inactive:nth-child(9) {
+  animation-delay: 0.12s !important;
 }
 
 /*# sourceMappingURL=main.css.map */

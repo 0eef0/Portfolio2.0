@@ -1,3 +1,18 @@
 @use "../themes/defaultTheme" as *;
 @use "../util/variables" as *;
 @use "../util/mixins" as *;
+
+@font-face {
+  font-family: newart;
+  /* Font by Pravdin */
+  src: url("../Utils/NEXT\ ART_Regular.otf");
+}
+
+* {
+  font-family: newart;
+}
+
+body,
+html {
+  overflow-x: hidden !important;
+}

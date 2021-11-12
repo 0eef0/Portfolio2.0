@@ -12,7 +12,9 @@ div#navbar {
   transition: width 0.3s;
   z-index: 10000;
   position: fixed;
+  top: 0;
   width: 3vw;
+  min-width: 50px;
   height: 100vh;
   display: flex;
   justify-content: flex-start;
@@ -63,11 +65,6 @@ div#navbar {
       z-index: -1;
     }
   }
-  div.primary {
-    display: block;
-    width: 100%;
-    box-shadow: 1vw 0 1vw 0.1vw black;
-  }
   div:hover {
     &::after {
       width: 100%;
@@ -75,10 +72,34 @@ div#navbar {
       background-color: rgba($color: white, $alpha: 0.1);
     }
   }
-  div:first-child {
+  div.primary {
+    display: block;
+    width: 100%;
+    box-shadow: 1vw 0 1vw 0.1vw black !important;
+  }
+  div:first-of-type {
     box-shadow: -1vw 0 1vw 0.1vw black !important;
   }
-  div:last-child {
+  div:last-of-type {
     box-shadow: 1vw 0 1vw 0.1vw black !important;
+  }
+
+  &:hover {
+    section#mediaLinks {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  section#mediaLinks {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5vw;
+    a,
+    a:visited {
+      color: white;
+      font-size: 3vw;
+    }
   }
 }

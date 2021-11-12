@@ -1,0 +1,87 @@
+div#contactDiv {
+  position: absolute;
+  left: 10vw;
+  transform: skew(-10deg);
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div#emailForm {
+    width: 80vw;
+    height: 70vh;
+    border: 2px solid black;
+    box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #000000, $alpha: 0.75);
+    animation-fill-mode: forwards !important;
+    transform: translateX(-100vw);
+
+    *:focus {
+      outline: none;
+    }
+    input {
+      width: 100%;
+      height: 10%;
+      border-bottom: 2px solid black;
+      padding: 1vw;
+    }
+    textarea {
+      width: 100%;
+      height: 80%;
+      padding: 1vw;
+      resize: none;
+      border-bottom: 2px solid black;
+    }
+    button {
+      position: absolute;
+      bottom: 1vw;
+      border: 2px solid black;
+      right: 1vw;
+      width: 10%;
+      height: 5%;
+      padding: 0.1vw;
+      text-align: center;
+      animation: animate 1.5s ease-in infinite;
+      &:hover {
+        animation: none;
+      }
+      @keyframes animate {
+        0% {
+          bottom: 1vw;
+        }
+        50% {
+          bottom: 1.5vw;
+        }
+        100% {
+          bottom: 1vw;
+        }
+      }
+    }
+
+    &.active {
+      animation: 0.5s ease-out 0s 1 contactSlideIn;
+    }
+    &.inactive {
+      animation: 0.5s ease-out 0s 1 contactSlideOut;
+    }
+
+    @keyframes contactSlideIn {
+      0% {
+        transform: translateX(-100vw);
+        display: block;
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    @keyframes contactSlideOut {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100vw);
+        display: none;
+      }
+    }
+  }
+}
