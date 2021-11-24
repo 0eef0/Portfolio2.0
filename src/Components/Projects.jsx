@@ -16,6 +16,16 @@ const Projects = () => {
 
     return (
         <div className='projectDiv' style={{left: `${left * 0.01}%`}}>
+            <div className='project' style={{
+                display:'flex',
+                alignItems:'center'
+            }}>
+                <h1 style={{
+                    color:'white',
+                    fontSize:'calc(2vw + 2vh)',
+                    textAlign:'center',
+                }}>More to come soon!</h1>
+            </div>
             <div className='project'>
                 <img src={Minesweeper} alt="minesweeper" />
                 <div className='info'>
@@ -34,17 +44,8 @@ const Projects = () => {
                     <button style={{right:'10%'}}><p>Visit Site</p></button>
                 </div>
             </div>
-            <div className='project' style={{
-                display:'flex',
-                alignItems:'center'
-            }}>
-                <h1 style={{
-                    color:'white',
-                    fontSize:'calc(2vw + 2vh)',
-                    textAlign:'center',
-                }}>More to come soon!</h1>
-            </div>
-            <div className='project'>
+
+            {/* <div className='project'>
                 1
             </div>
             <div className='project'>
@@ -79,7 +80,7 @@ const Projects = () => {
             </div>
             <div className='project'>
                 4
-            </div>
+            </div> */}
         </div>
     )
 }

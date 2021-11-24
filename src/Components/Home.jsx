@@ -26,7 +26,7 @@ const Home = () => {
             <div className='homeSection'>
                 <h1>A bit about myself</h1>
                 <p>
-
+                    I was born in Mesa, Arizona but raised in various parts of California before coming back to Peoria, Arizona. I currently attend Mountain Ridge High School but also go to West-MEC Northeast Campus for coding. I love video games, sleeping, hanging out with friends, and just having a fun time overall.
                 </p>
             </div>
         </div>
