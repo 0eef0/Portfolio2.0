@@ -13,18 +13,20 @@ const Home = () => {
             <div className='homeSection'>
                 <h1>Random Facts</h1>
                 <ul>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>I have a <span><em>mild</em></span> sweet tooth.</li>
+                    <li>I <em>love</em> food a lot more than a normal person.</li>
+                    <li>I am a <strong>MASTER</strong> of Mario Kart Wii</li>
+                    <li>My favorite video game genre is RPGs</li>
+                    <li>My favorite anime at the moment is Seven Deadly Sins</li>
                 </ul>
             </div>
-            <div style={{padding: '0'}} className='homeSection'>
+            <div style={{padding: '0', background:'#222'}} className='homeSection'>
                 <img src={Me} alt='Headshot' />
             </div>
             <div className='homeSection'>
                 <h1>A bit about myself</h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nulla repellat provident maiores a error eveniet quos ipsa sunt cum. Optio autem ad aliquam deleniti voluptate inventore ipsa est alias, ipsam suscipit qui sapiente placeat adipisci excepturi nisi quibusdam dolor.
+
                 </p>
             </div>
         </div>

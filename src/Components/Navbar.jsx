@@ -15,6 +15,9 @@ const Navbar = () => {
             case 'project':
                 projectAway();
                 break;
+            case 'resume':
+                resumeAway();
+                break;
             default:
                 break;
         }
@@ -35,6 +38,9 @@ const Navbar = () => {
                 break;
             case 'resume':
                 currAway();
+                setTimeout(() => {
+                    resumeAppear();
+                }, 1000);
                 break;
             case 'contact':
                 currAway();
@@ -70,6 +76,21 @@ const Navbar = () => {
     }
     const projectAway = () => {
         let temp = document.getElementsByClassName('project');
+        for(let i = 0; i < temp.length; i++){
+            temp[i].classList.add('inactive');
+            temp[i].classList.remove('active');
+        }
+    }
+
+    const resumeAppear = () => {
+        let elems = document.getElementsByClassName('resume');
+        for(let i = 0; i < elems.length; i++){
+            elems[i].classList.add('active');
+            elems[i].classList.remove('inactive');
+        }
+    }
+    const resumeAway = () => {
+        let temp = document.getElementsByClassName('resume');
         for(let i = 0; i < temp.length; i++){
             temp[i].classList.add('inactive');
             temp[i].classList.remove('active');

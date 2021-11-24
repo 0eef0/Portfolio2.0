@@ -101,5 +101,17 @@ div#navbar {
       color: white;
       font-size: 3vw;
     }
+    @media screen and (max-width: 900px) {
+      & {
+        top: 0;
+        left: 0;
+        bottom: auto;
+        right: auto;
+        a,
+        a:visited {
+          font-size: calc(2vw + 2vh);
+        }
+      }
+    }
   }
 }

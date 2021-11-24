@@ -8,7 +8,9 @@ const Projects = () => {
 
     useEffect(() => {
     window.addEventListener('scroll', () => {
-        setLeft(window.scrollY);
+        if(window.innerWidth >= 720){
+            setLeft(window.scrollY);
+        }
     })
     }, [])
 
@@ -31,6 +33,16 @@ const Projects = () => {
                     <button style={{left:'10%'}}><p>See the Repo</p></button>
                     <button style={{right:'10%'}}><p>Visit Site</p></button>
                 </div>
+            </div>
+            <div className='project' style={{
+                display:'flex',
+                alignItems:'center'
+            }}>
+                <h1 style={{
+                    color:'white',
+                    fontSize:'calc(2vw + 2vh)',
+                    textAlign:'center',
+                }}>More to come soon!</h1>
             </div>
             <div className='project'>
                 1

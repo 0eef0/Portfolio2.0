@@ -35,7 +35,6 @@
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-weight: normal;
   vertical-align: baseline;
   background: transparent;
 }
@@ -397,6 +396,18 @@ div#navbar section#mediaLinks a:visited {
   color: white;
   font-size: 3vw;
 }
+@media screen and (max-width: 900px) {
+  div#navbar section#mediaLinks {
+    top: 0;
+    left: 0;
+    bottom: auto;
+    right: auto;
+  }
+  div#navbar section#mediaLinks a,
+div#navbar section#mediaLinks a:visited {
+    font-size: calc(2vw + 2vh);
+  }
+}
 
 div.homeDiv {
   position: absolute;
@@ -426,34 +437,17 @@ div.homeDiv div.leave {
   transform: translateX(0);
   animation: 0.5s ease-out 0s 1 homeSlideOut;
 }
-@keyframes homeSlideIn {
-  0% {
-    transform: translateX(-100vw);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes homeSlideOut {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100vw);
-  }
-}
 div.homeDiv div *,
 div.homeDiv div *::after,
 div.homeDiv div *::before {
   transform: skew(10deg) !important;
 }
 div.homeDiv div img {
-  height: 100%;
+  height: 200%;
   width: auto;
   object-fit: cover;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+  position: absolute;
+  top: -40%;
 }
 div.homeDiv div h1 {
   font-size: calc(2vw + 2vh);
@@ -468,6 +462,13 @@ div.homeDiv div p,
 div.homeDiv div li {
   font-size: calc(0.75vw + 0.75vh);
 }
+div.homeDiv div p span,
+div.homeDiv div li span {
+  border: 2px solid black;
+  padding: 0.1vw;
+  border-radius: 50%;
+  font-weight: 700 !important;
+}
 @media screen and (max-width: 720px) {
   div.homeDiv {
     display: block;
@@ -476,7 +477,15 @@ div.homeDiv div li {
   div.homeDiv div {
     width: 80% !important;
     transform: skew(-10deg) !important;
+    transition: transform 5s;
     margin-top: 1rem;
+    animation: 0.5s ease-out 0s 1 homeSlideIn;
+    animation-fill-mode: forwards !important;
+  }
+  div.homeDiv div.leave {
+    transform: translateX(0);
+    animation: 0.5s ease-out 0s 1 homeSlideOut;
+    display: none;
   }
   div.homeDiv div *,
 div.homeDiv div *::after,
@@ -521,6 +530,22 @@ div.homeDiv div li {
   animation-delay: 0.2s !important;
 }
 
+@keyframes homeSlideIn {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes homeSlideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
 div#contactDiv {
   position: absolute;
   left: 10vw;
@@ -620,6 +645,7 @@ div.projectDiv div {
   margin: 1vw;
   width: 25vw;
   min-width: 200px;
+  min-height: 200px;
   height: calc(15vw + 8vh);
   padding: 0;
   box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
@@ -673,6 +699,7 @@ div.projectDiv div:hover div.info {
 }
 div.projectDiv div div.info {
   position: absolute;
+  width: 100% !important;
   transform: skew(0deg) translateY(100%) !important;
   transition: transform 0.3s;
   border: none;
@@ -702,6 +729,35 @@ div.projectDiv div div.info button {
   transform: skew(-2.5deg) !important;
   position: absolute;
   bottom: 1vh;
+}
+@media screen and (max-width: 720px) {
+  div.projectDiv {
+    display: block;
+    left: 60px !important;
+    transform: skew(0deg) !important;
+  }
+  div.projectDiv div {
+    width: 80% !important;
+    transform: skew(-10deg) !important;
+    transition: transform 5s;
+    margin-top: 1rem;
+    animation: 0.5s ease-out 0s 1 homeSlideIn;
+    animation-fill-mode: forwards !important;
+  }
+  div.projectDiv div.inactive {
+    transform: translateX(0);
+    animation: 0.5s ease-out 0s 1 homeSlideOut;
+    display: none !important;
+  }
+  div.projectDiv div *,
+div.projectDiv div *::after,
+div.projectDiv div *::before {
+    transform: skew(10deg) !important;
+  }
+  div.projectDiv div p,
+div.projectDiv div li {
+    font-size: calc(1.25vw + 1.25vh) !important;
+  }
 }
 
 .projectDiv div:nth-child(1) {
@@ -774,6 +830,188 @@ div.projectDiv div div.info button {
 
 .projectDiv div.inactive:nth-child(9) {
   animation-delay: 0.12s !important;
+}
+
+div.resumeDiv {
+  position: absolute;
+  left: 50px;
+  transform: skew(-10deg);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+div.resumeDiv div {
+  margin: 1vw;
+  width: 35vw;
+  min-width: 200px;
+  height: calc(15vw + 8vh);
+  padding: 0;
+  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
+  border: 2px solid black;
+  animation-fill-mode: forwards !important;
+  transform: translateX(-100vw);
+  overflow: hidden;
+}
+div.resumeDiv div.double {
+  width: 72vw;
+}
+div.resumeDiv div.active {
+  animation: 0.5s ease-out 0s 1 projectSlideIn;
+}
+div.resumeDiv div.inactive {
+  transform: translateX(0);
+  animation: 0.5s ease-out 0s 1 projectSlideOut;
+}
+@keyframes projectSlideIn {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes projectSlideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+    display: none !important;
+  }
+}
+div.resumeDiv div *,
+div.resumeDiv div *::after,
+div.resumeDiv div *::before {
+  transform: skew(10deg) !important;
+}
+div.resumeDiv div img {
+  height: 100%;
+  width: calc(100% + 4vw) !important;
+  object-fit: cover;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  box-shadow: 0.1vw 0 1vw 0.1vw black;
+}
+div.resumeDiv div:hover div.info {
+  transform: skew(0deg) translateY(0%) !important;
+}
+div.resumeDiv div div.info {
+  position: absolute;
+  transform: skew(0deg) translateY(100%) !important;
+  transition: transform 0.3s;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  padding: 1vw;
+  top: 0;
+  left: 0;
+}
+div.resumeDiv div div.info h1 {
+  font-size: calc(2vw + 2vh);
+}
+div.resumeDiv div div.info ul {
+  list-style-type: circle;
+}
+div.resumeDiv div div.info ul li {
+  transform: skew(0) !important;
+}
+div.resumeDiv div div.info p,
+div.resumeDiv div div.info li {
+  font-size: calc(0.75vw + 0.75vh);
+}
+div.resumeDiv div div.info button {
+  background-color: black;
+  color: white;
+  padding: 0.5vw;
+  transform: skew(-2.5deg) !important;
+  position: absolute;
+  bottom: 1vh;
+}
+@media screen and (max-width: 720px) {
+  div.resumeDiv {
+    display: block;
+    left: 60px !important;
+    transform: skew(0deg) !important;
+  }
+  div.resumeDiv div {
+    transform: skew(-10deg) !important;
+    transition: transform 5s;
+    margin-top: 1rem;
+    width: 70vw;
+    min-height: 150px;
+    animation: 0.5s ease-out 0s 1 homeSlideIn;
+    animation-fill-mode: forwards !important;
+  }
+  div.resumeDiv div.double {
+    height: calc((15vw + 8vh) * 2);
+    min-height: 300px;
+  }
+  div.resumeDiv div.inactive {
+    transform: translateX(0);
+    animation: 0.5s ease-out 0s 1 homeSlideOut;
+    display: none !important;
+  }
+  div.resumeDiv div *,
+div.resumeDiv div *::after,
+div.resumeDiv div *::before {
+    transform: skew(10deg) !important;
+  }
+  div.resumeDiv div p,
+div.resumeDiv div li {
+    font-size: calc(1.25vw + 1.25vh) !important;
+  }
+}
+
+.resumeDiv div:nth-child(1) {
+  animation-delay: 0s !important;
+}
+
+.resumeDiv div.inactive:nth-child(1) {
+  animation-delay: 1s !important;
+}
+
+.resumeDiv div:nth-child(2) {
+  animation-delay: 0.17s !important;
+}
+
+.resumeDiv div.inactive:nth-child(2) {
+  animation-delay: 0.83s !important;
+}
+
+.resumeDiv div:nth-child(3) {
+  animation-delay: 0.34s !important;
+}
+
+.resumeDiv div.inactive:nth-child(3) {
+  animation-delay: 0.66s !important;
+}
+
+.resumeDiv div:nth-child(4) {
+  animation-delay: 0.51s !important;
+}
+
+.resumeDiv div.inactive:nth-child(4) {
+  animation-delay: 0.49s !important;
+}
+
+.resumeDiv div:nth-child(5) {
+  animation-delay: 0.68s !important;
+}
+
+.resumeDiv div.inactive:nth-child(5) {
+  animation-delay: 0.32s !important;
+}
+
+.resumeDiv div:nth-child(6) {
+  animation-delay: 0.85s !important;
+}
+
+.resumeDiv div.inactive:nth-child(6) {
+  animation-delay: 0.15s !important;
 }
 
 /*# sourceMappingURL=main.css.map */
