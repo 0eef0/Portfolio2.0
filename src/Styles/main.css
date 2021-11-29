@@ -418,6 +418,7 @@ div.homeDiv {
   display: flex;
   flex-wrap: wrap-reverse;
   flex-direction: column;
+  z-index: 10;
 }
 div.homeDiv div {
   margin: 1vw;
@@ -428,6 +429,7 @@ div.homeDiv div {
   box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
   border: 2px solid black;
   animation: 0.5s ease-out 0s 1 homeSlideIn;
+  z-index: 10;
   animation-fill-mode: forwards !important;
   transform: translateX(-100vw);
   overflow: hidden;
@@ -435,6 +437,7 @@ div.homeDiv div {
 div.homeDiv div.leave {
   transform: translateX(0);
   animation: 0.5s ease-out 0s 1 homeSlideOut;
+  z-index: 0;
 }
 div.homeDiv div *,
 div.homeDiv div *::after,
@@ -484,7 +487,7 @@ div.homeDiv div li span {
   div.homeDiv div.leave {
     transform: translateX(0);
     animation: 0.5s ease-out 0s 1 homeSlideOut;
-    display: none;
+    display: none !important;
   }
   div.homeDiv div *,
 div.homeDiv div *::after,
@@ -545,7 +548,7 @@ div.homeDiv div li {
     transform: translateX(-100vw);
   }
 }
-div#contactDiv {
+div.contactDiv {
   position: absolute;
   left: 10vw;
   transform: skew(-10deg);
@@ -555,7 +558,10 @@ div#contactDiv {
   justify-content: center;
   align-items: center;
 }
-div#contactDiv div#emailForm {
+div.contactDiv:has(div#emailForm.active) {
+  z-index: 10;
+}
+div.contactDiv form#emailForm {
   width: 80vw;
   height: 70vh;
   border: 2px solid black;
@@ -563,23 +569,23 @@ div#contactDiv div#emailForm {
   animation-fill-mode: forwards !important;
   transform: translateX(-100vw);
 }
-div#contactDiv div#emailForm *:focus {
+div.contactDiv form#emailForm *:focus {
   outline: none;
 }
-div#contactDiv div#emailForm input {
+div.contactDiv form#emailForm input {
   width: 100%;
   height: 10%;
   border-bottom: 2px solid black;
   padding: 1vw;
 }
-div#contactDiv div#emailForm textarea {
+div.contactDiv form#emailForm textarea {
   width: 100%;
-  height: 80%;
+  height: 70%;
   padding: 1vw;
   resize: none;
   border-bottom: 2px solid black;
 }
-div#contactDiv div#emailForm button {
+div.contactDiv form#emailForm button {
   position: absolute;
   bottom: 1vw;
   border: 2px solid black;
@@ -590,7 +596,7 @@ div#contactDiv div#emailForm button {
   text-align: center;
   animation: animate 1.5s ease-in infinite;
 }
-div#contactDiv div#emailForm button:hover {
+div.contactDiv form#emailForm button:hover {
   animation: none;
 }
 @keyframes animate {
@@ -604,11 +610,13 @@ div#contactDiv div#emailForm button:hover {
     bottom: 1vw;
   }
 }
-div#contactDiv div#emailForm.active {
+div.contactDiv form#emailForm.active {
   animation: 0.5s ease-out 0s 1 contactSlideIn;
+  z-index: 10 !important;
 }
-div#contactDiv div#emailForm.inactive {
+div.contactDiv form#emailForm.inactive {
   animation: 0.5s ease-out 0s 1 contactSlideOut;
+  z-index: 0 !important;
 }
 @keyframes contactSlideIn {
   0% {
@@ -656,10 +664,12 @@ div.projectDiv div {
 }
 div.projectDiv div.active {
   animation: 0.5s ease-out 0s 1 projectSlideIn;
+  z-index: 10;
 }
 div.projectDiv div.inactive {
   transform: translateX(0);
   animation: 0.5s ease-out 0s 1 projectSlideOut;
+  z-index: 0;
 }
 @keyframes projectSlideIn {
   0% {
@@ -858,10 +868,12 @@ div.resumeDiv div.double {
 }
 div.resumeDiv div.active {
   animation: 0.5s ease-out 0s 1 projectSlideIn;
+  z-index: 10 !important;
 }
 div.resumeDiv div.inactive {
   transform: translateX(0);
   animation: 0.5s ease-out 0s 1 projectSlideOut;
+  z-index: 0 !important;
 }
 @keyframes projectSlideIn {
   0% {

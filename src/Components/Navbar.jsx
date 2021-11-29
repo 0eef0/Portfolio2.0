@@ -55,12 +55,14 @@ const Navbar = () => {
     }
 
     const homeAppear = () => {
+        document.getElementsByClassName('homeDiv')[0].style.zIndex = 10;
         let elems = document.getElementsByClassName('homeSection');
         for(let i = 0; i < elems.length; i++){
             elems[i].classList.remove('leave');
         }
     }
     const homeAway = () => {
+        document.getElementsByClassName('homeDiv')[0].style.zIndex = 0;
         let temp = document.getElementsByClassName('homeSection');
         for(let i = 0; i < temp.length; i++){
             temp[i].classList.add('leave');
@@ -68,6 +70,7 @@ const Navbar = () => {
     }
 
     const projectAppear = () => {
+        document.getElementsByClassName('projectDiv')[0].style.zIndex = 10;
         let elems = document.getElementsByClassName('project');
         for(let i = 0; i < elems.length; i++){
             elems[i].classList.add('active');
@@ -75,6 +78,7 @@ const Navbar = () => {
         }
     }
     const projectAway = () => {
+        document.getElementsByClassName('projectDiv')[0].style.zIndex = 0;
         let temp = document.getElementsByClassName('project');
         for(let i = 0; i < temp.length; i++){
             temp[i].classList.add('inactive');
@@ -83,6 +87,7 @@ const Navbar = () => {
     }
 
     const resumeAppear = () => {
+        document.getElementsByClassName('resumeDiv')[0].style.zIndex = 10;
         let elems = document.getElementsByClassName('resume');
         for(let i = 0; i < elems.length; i++){
             elems[i].classList.add('active');
@@ -90,6 +95,7 @@ const Navbar = () => {
         }
     }
     const resumeAway = () => {
+        document.getElementsByClassName('resumeDiv')[0].style.zIndex = 0;
         let temp = document.getElementsByClassName('resume');
         for(let i = 0; i < temp.length; i++){
             temp[i].classList.add('inactive');
@@ -98,10 +104,12 @@ const Navbar = () => {
     }
 
     const contactAppear = () => {
+        document.getElementsByClassName('contactDiv')[0].style.zIndex = 10;
         document.getElementById('emailForm').classList.add('active');
         document.getElementById('emailForm').classList.remove('inactive');
     }
     const contactAway = () => {
+        document.getElementsByClassName('contactDiv')[0].style.zIndex = 0;
         document.getElementById('emailForm').classList.add('inactive');
         document.getElementById('emailForm').classList.remove('active');
     }

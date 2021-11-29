@@ -22,10 +22,12 @@ div.projectDiv {
     background-color: #222222;
     &.active {
       animation: 0.5s ease-out 0s 1 projectSlideIn;
+      z-index: 10;
     }
     &.inactive {
       transform: translateX(0);
       animation: 0.5s ease-out 0s 1 projectSlideOut;
+      z-index: 0;
     }
     animation-fill-mode: forwards !important;
     transform: translateX(-100vw);
