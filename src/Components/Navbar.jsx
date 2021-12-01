@@ -4,6 +4,17 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 const Navbar = () => {
     const [currPage, setCurrPage] = useState('home');
 
+    const allSlide = () => {
+        if(window.innerWidth < 720){
+            document.getElementsByClassName('homeDiv')[0].style.display = 'none';
+            document.getElementsByClassName('projectDiv')[0].style.display = 'none';
+            document.getElementsByClassName('resumeDiv')[0].style.display = 'none';
+            document.getElementsByClassName('contactDiv')[0].style.display = 'none';
+
+            document.getElementsByClassName(`${currPage}Div`)[0].style.display = 'block';
+        }
+    }
+
     const currAway = () => {
         switch (currPage) {
             case 'home':
@@ -27,25 +38,33 @@ const Navbar = () => {
             case 'home':
                 currAway();
                 setTimeout(() => {
+                    
                     homeAppear();
+                    allSlide();
                 }, 1000);
                 break;
             case 'project':
                 currAway();
                 setTimeout(() => {
+                    
                     projectAppear();
+                    allSlide();
                 }, 1000);
                 break;
             case 'resume':
                 currAway();
                 setTimeout(() => {
+                    
                     resumeAppear();
+                    allSlide();
                 }, 1000);
                 break;
             case 'contact':
                 currAway();
                 setTimeout(() => {
+                    
                     contactAppear();
+                    allSlide();
                 }, 1000);
                 break;
             default:
@@ -58,14 +77,14 @@ const Navbar = () => {
         document.getElementsByClassName('homeDiv')[0].style.zIndex = 10;
         let elems = document.getElementsByClassName('homeSection');
         for(let i = 0; i < elems.length; i++){
-            elems[i].classList.remove('leave');
+            elems[i].classList.remove('inactive');
         }
     }
     const homeAway = () => {
         document.getElementsByClassName('homeDiv')[0].style.zIndex = 0;
         let temp = document.getElementsByClassName('homeSection');
         for(let i = 0; i < temp.length; i++){
-            temp[i].classList.add('leave');
+            temp[i].classList.add('inactive');
         }
     }
 

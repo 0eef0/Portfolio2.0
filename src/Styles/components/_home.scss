@@ -1,4 +1,5 @@
 div.homeDiv {
+  // General styling for the home page
   position: absolute;
   left: 100px;
   transform: skew(-10deg);
@@ -10,18 +11,19 @@ div.homeDiv {
   flex-direction: column;
   z-index: 10;
 
-  div {
+  // styling for each box of the home page
+  div.homeSection {
     margin: 1vw;
     width: 40vw;
     min-width: 250px;
     height: 40vh;
     padding: 3vw;
-    //background-color: rgba($color: #000000, $alpha: 0.3);
     box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #000000, $alpha: 0.75);
     border: 2px solid black;
     animation: 0.5s ease-out 0s 1 homeSlideIn;
     z-index: 10;
-    &.leave {
+    // when applied, this slides each home box out to the left
+    &.inactive {
       transform: translateX(0);
       animation: 0.5s ease-out 0s 1 homeSlideOut;
       z-index: 0;
@@ -30,11 +32,14 @@ div.homeDiv {
     transform: translateX(-100vw);
     overflow: hidden;
 
+    // this unskews the contents of the box
     *,
     *::after,
     *::before {
       transform: skew(10deg) !important;
     }
+
+    // this scales the headshot to proper size
     img {
       height: 200%;
       width: auto;
@@ -42,6 +47,8 @@ div.homeDiv {
       position: absolute;
       top: -40%;
     }
+
+    // more general styling for each box
     h1 {
       font-size: calc(2vw + 2vh);
     }
@@ -62,23 +69,25 @@ div.homeDiv {
       }
     }
   }
+
+  // mobile styling for home page
   @media screen and (max-width: 720px) {
     & {
       display: block;
       transform: skew(0deg) !important;
-      div {
+      div.homeSection {
         width: 80% !important;
         transform: skew(-10deg) !important;
         transition: transform 5s;
         margin-top: 1rem;
-
         animation: 0.5s ease-out 0s 1 homeSlideIn;
+        animation-fill-mode: forwards !important;
+
         &.leave {
           transform: translateX(0);
           animation: 0.5s ease-out 0s 1 homeSlideOut;
           display: none !important;
         }
-        animation-fill-mode: forwards !important;
 
         *,
         *::after,
@@ -94,14 +103,17 @@ div.homeDiv {
   }
 }
 
+// adds different animation delays to each box
 @for $i from 1 through 4 {
   .homeDiv div:nth-child(#{$i}) {
     animation-delay: #{($i - 1) * 0.2}s !important;
   }
-  .homeDiv div.leave:nth-child(#{$i}) {
+  .homeDiv div.inactive:nth-child(#{$i}) {
     animation-delay: #{0.8 - (($i - 1) * 0.2)}s !important;
   }
 }
+
+// animations for sliding in and sliding out
 @keyframes homeSlideIn {
   0% {
     transform: translateX(-100vw);

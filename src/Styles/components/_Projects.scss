@@ -1,16 +1,20 @@
 div.projectDiv {
   position: absolute;
   left: 50px;
+  top: 5vh;
   transform: skew(-10deg);
   width: 90vw;
-  //height: 100vh !important;
   justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
 
-  div {
+  div.project {
+    &.reordered {
+      order: 3;
+    }
+    order: 1;
     margin: 1vw;
     width: 25vw;
     min-width: 200px;
@@ -74,6 +78,7 @@ div.projectDiv {
     div.info {
       position: absolute;
       width: 100% !important;
+      height: 100% !important;
       transform: skew(0deg) translateY(100%) !important;
       transition: transform 0.3s;
       border: none;

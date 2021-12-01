@@ -1,6 +1,7 @@
 div.resumeDiv {
   position: absolute;
   left: 50px;
+  top: 5vh;
   transform: skew(-10deg);
   //height: 100vh !important;
   justify-content: center;
@@ -9,7 +10,7 @@ div.resumeDiv {
   flex-wrap: wrap;
   flex-direction: row-reverse;
 
-  div {
+  div.resume {
     margin: 1vw;
     width: 35vw;
     min-width: 200px;
@@ -20,6 +21,30 @@ div.resumeDiv {
     border: 2px solid black;
     &.double {
       width: 72vw;
+      div {
+        transform: skew(0) !important;
+      }
+      .lists {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 0.5vw;
+        .certification {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          width: 40%;
+          img {
+            width: 50%;
+            height: auto;
+            object-fit: contain;
+          }
+        }
+        h3 {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
     }
     &.active {
       animation: 0.5s ease-out 0s 1 projectSlideIn;
@@ -77,16 +102,6 @@ div.resumeDiv {
     *::after,
     *::before {
       transform: skew(10deg) !important;
-    }
-    img {
-      height: 100%;
-      width: calc(100% + 4vw) !important;
-      object-fit: cover;
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      box-shadow: 0.1vw 0 1vw 0.1vw black;
     }
     &:hover {
       div.info {

@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import MTA from '../Images/mta.png';
 
 const Resume = () => {
     const [left, setLeft] = useState(0);
@@ -53,6 +54,27 @@ const Resume = () => {
             </div>
             <div className='resume double'>
                 <h1>Experience/Certs</h1>
+                <div className='lists'>
+                    <div className='experience'>
+                        <h3>West-MEC Coding Student</h3>
+                        <ul>
+                            <li><p>Learning basic web development and problem-solving skills</p></li>
+                            <li><p>Learning professional workplace practices</p></li>
+                        </ul>
+                    </div>
+                    <div className='experience'>
+                        <h3>FBLA Member/Officer</h3>
+                        <ul>
+                            <li><p>Acted as Chapter Treasurer in 2020-2021</p></li>
+                            <li><p>Acted as Chapter President in 2021-2022</p></li>
+                            <li><p>Leads general chapter meetings</p></li>
+                        </ul>
+                    </div>
+                    <div className='certification'>
+                        <img src={MTA} alt="MTA Certification" />
+                        <h3 style={{textAlign:'center'}}>MTA Certification</h3>
+                    </div>
+                </div>
             </div>
             <div className='resume double'>
                 <h1>Work History</h1>

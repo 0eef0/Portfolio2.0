@@ -420,7 +420,7 @@ div.homeDiv {
   flex-direction: column;
   z-index: 10;
 }
-div.homeDiv div {
+div.homeDiv div.homeSection {
   margin: 1vw;
   width: 40vw;
   min-width: 250px;
@@ -434,38 +434,38 @@ div.homeDiv div {
   transform: translateX(-100vw);
   overflow: hidden;
 }
-div.homeDiv div.leave {
+div.homeDiv div.homeSection.inactive {
   transform: translateX(0);
   animation: 0.5s ease-out 0s 1 homeSlideOut;
   z-index: 0;
 }
-div.homeDiv div *,
-div.homeDiv div *::after,
-div.homeDiv div *::before {
+div.homeDiv div.homeSection *,
+div.homeDiv div.homeSection *::after,
+div.homeDiv div.homeSection *::before {
   transform: skew(10deg) !important;
 }
-div.homeDiv div img {
+div.homeDiv div.homeSection img {
   height: 200%;
   width: auto;
   object-fit: cover;
   position: absolute;
   top: -40%;
 }
-div.homeDiv div h1 {
+div.homeDiv div.homeSection h1 {
   font-size: calc(2vw + 2vh);
 }
-div.homeDiv div ul {
+div.homeDiv div.homeSection ul {
   list-style-type: circle;
 }
-div.homeDiv div ul li {
+div.homeDiv div.homeSection ul li {
   transform: skew(0) !important;
 }
-div.homeDiv div p,
-div.homeDiv div li {
+div.homeDiv div.homeSection p,
+div.homeDiv div.homeSection li {
   font-size: calc(0.75vw + 0.75vh);
 }
-div.homeDiv div p span,
-div.homeDiv div li span {
+div.homeDiv div.homeSection p span,
+div.homeDiv div.homeSection li span {
   border: 2px solid black;
   padding: 0.1vw;
   border-radius: 50%;
@@ -476,7 +476,7 @@ div.homeDiv div li span {
     display: block;
     transform: skew(0deg) !important;
   }
-  div.homeDiv div {
+  div.homeDiv div.homeSection {
     width: 80% !important;
     transform: skew(-10deg) !important;
     transition: transform 5s;
@@ -484,18 +484,18 @@ div.homeDiv div li span {
     animation: 0.5s ease-out 0s 1 homeSlideIn;
     animation-fill-mode: forwards !important;
   }
-  div.homeDiv div.leave {
+  div.homeDiv div.homeSection.leave {
     transform: translateX(0);
     animation: 0.5s ease-out 0s 1 homeSlideOut;
     display: none !important;
   }
-  div.homeDiv div *,
-div.homeDiv div *::after,
-div.homeDiv div *::before {
+  div.homeDiv div.homeSection *,
+div.homeDiv div.homeSection *::after,
+div.homeDiv div.homeSection *::before {
     transform: skew(10deg) !important;
   }
-  div.homeDiv div p,
-div.homeDiv div li {
+  div.homeDiv div.homeSection p,
+div.homeDiv div.homeSection li {
     font-size: calc(1.25vw + 1.25vh) !important;
   }
 }
@@ -504,7 +504,7 @@ div.homeDiv div li {
   animation-delay: 0s !important;
 }
 
-.homeDiv div.leave:nth-child(1) {
+.homeDiv div.inactive:nth-child(1) {
   animation-delay: 0.8s !important;
 }
 
@@ -512,7 +512,7 @@ div.homeDiv div li {
   animation-delay: 0.2s !important;
 }
 
-.homeDiv div.leave:nth-child(2) {
+.homeDiv div.inactive:nth-child(2) {
   animation-delay: 0.6s !important;
 }
 
@@ -520,7 +520,7 @@ div.homeDiv div li {
   animation-delay: 0.4s !important;
 }
 
-.homeDiv div.leave:nth-child(3) {
+.homeDiv div.inactive:nth-child(3) {
   animation-delay: 0.4s !important;
 }
 
@@ -528,7 +528,7 @@ div.homeDiv div li {
   animation-delay: 0.6s !important;
 }
 
-.homeDiv div.leave:nth-child(4) {
+.homeDiv div.inactive:nth-child(4) {
   animation-delay: 0.2s !important;
 }
 
@@ -640,6 +640,7 @@ div.contactDiv form#emailForm.inactive {
 div.projectDiv {
   position: absolute;
   left: 50px;
+  top: 5vh;
   transform: skew(-10deg);
   width: 90vw;
   justify-content: center;
@@ -648,7 +649,8 @@ div.projectDiv {
   flex-wrap: wrap;
   flex-direction: row-reverse;
 }
-div.projectDiv div {
+div.projectDiv div.project {
+  order: 1;
   margin: 1vw;
   width: 25vw;
   min-width: 200px;
@@ -662,11 +664,14 @@ div.projectDiv div {
   transform: translateX(-100vw);
   overflow: hidden;
 }
-div.projectDiv div.active {
+div.projectDiv div.project.reordered {
+  order: 3;
+}
+div.projectDiv div.project.active {
   animation: 0.5s ease-out 0s 1 projectSlideIn;
   z-index: 10;
 }
-div.projectDiv div.inactive {
+div.projectDiv div.project.inactive {
   transform: translateX(0);
   animation: 0.5s ease-out 0s 1 projectSlideOut;
   z-index: 0;
@@ -688,12 +693,12 @@ div.projectDiv div.inactive {
     display: none !important;
   }
 }
-div.projectDiv div *,
-div.projectDiv div *::after,
-div.projectDiv div *::before {
+div.projectDiv div.project *,
+div.projectDiv div.project *::after,
+div.projectDiv div.project *::before {
   transform: skew(10deg) !important;
 }
-div.projectDiv div img {
+div.projectDiv div.project img {
   height: 100%;
   width: calc(100% + 4vw) !important;
   object-fit: cover;
@@ -703,12 +708,13 @@ div.projectDiv div img {
   left: 0;
   box-shadow: 0.1vw 0 1vw 0.1vw black;
 }
-div.projectDiv div:hover div.info {
+div.projectDiv div.project:hover div.info {
   transform: skew(0deg) translateY(0%) !important;
 }
-div.projectDiv div div.info {
+div.projectDiv div.project div.info {
   position: absolute;
   width: 100% !important;
+  height: 100% !important;
   transform: skew(0deg) translateY(100%) !important;
   transition: transform 0.3s;
   border: none;
@@ -718,20 +724,20 @@ div.projectDiv div div.info {
   top: 0;
   left: 0;
 }
-div.projectDiv div div.info h1 {
+div.projectDiv div.project div.info h1 {
   font-size: calc(2vw + 2vh);
 }
-div.projectDiv div div.info ul {
+div.projectDiv div.project div.info ul {
   list-style-type: circle;
 }
-div.projectDiv div div.info ul li {
+div.projectDiv div.project div.info ul li {
   transform: skew(0) !important;
 }
-div.projectDiv div div.info p,
-div.projectDiv div div.info li {
+div.projectDiv div.project div.info p,
+div.projectDiv div.project div.info li {
   font-size: calc(0.75vw + 0.75vh);
 }
-div.projectDiv div div.info button {
+div.projectDiv div.project div.info button {
   background-color: black;
   color: white;
   padding: 0.5vw;
@@ -844,6 +850,7 @@ div.projectDiv div li {
 div.resumeDiv {
   position: absolute;
   left: 50px;
+  top: 5vh;
   transform: skew(-10deg);
   justify-content: center;
   align-items: center;
@@ -851,7 +858,7 @@ div.resumeDiv {
   flex-wrap: wrap;
   flex-direction: row-reverse;
 }
-div.resumeDiv div {
+div.resumeDiv div.resume {
   margin: 1vw;
   width: 35vw;
   min-width: 200px;
@@ -863,14 +870,38 @@ div.resumeDiv div {
   transform: translateX(-100vw);
   overflow: hidden;
 }
-div.resumeDiv div.double {
+div.resumeDiv div.resume.double {
   width: 72vw;
 }
-div.resumeDiv div.active {
+div.resumeDiv div.resume.double div {
+  transform: skew(0) !important;
+}
+div.resumeDiv div.resume.double .lists {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0.5vw;
+}
+div.resumeDiv div.resume.double .lists .certification {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 40%;
+}
+div.resumeDiv div.resume.double .lists .certification img {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
+}
+div.resumeDiv div.resume.double .lists h3 {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+div.resumeDiv div.resume.active {
   animation: 0.5s ease-out 0s 1 projectSlideIn;
   z-index: 10 !important;
 }
-div.resumeDiv div.inactive {
+div.resumeDiv div.resume.inactive {
   transform: translateX(0);
   animation: 0.5s ease-out 0s 1 projectSlideOut;
   z-index: 0 !important;
@@ -892,43 +923,33 @@ div.resumeDiv div.inactive {
     display: none !important;
   }
 }
-div.resumeDiv div h1 {
+div.resumeDiv div.resume h1 {
   font-size: calc(2vw + 2vh);
 }
-div.resumeDiv div ul {
+div.resumeDiv div.resume ul {
   list-style-type: circle;
   margin: 1vw;
 }
-div.resumeDiv div ul li {
+div.resumeDiv div.resume ul li {
   transform: skew(0) !important;
 }
-div.resumeDiv div p,
-div.resumeDiv div li {
+div.resumeDiv div.resume p,
+div.resumeDiv div.resume li {
   font-size: calc(0.75vw + 0.75vh);
 }
-div.resumeDiv div p span,
-div.resumeDiv div li span {
+div.resumeDiv div.resume p span,
+div.resumeDiv div.resume li span {
   border: 2px solid black;
   padding: 0.1vw;
   border-radius: 50%;
   font-weight: 700 !important;
 }
-div.resumeDiv div *,
-div.resumeDiv div *::after,
-div.resumeDiv div *::before {
+div.resumeDiv div.resume *,
+div.resumeDiv div.resume *::after,
+div.resumeDiv div.resume *::before {
   transform: skew(10deg) !important;
 }
-div.resumeDiv div img {
-  height: 100%;
-  width: calc(100% + 4vw) !important;
-  object-fit: cover;
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  box-shadow: 0.1vw 0 1vw 0.1vw black;
-}
-div.resumeDiv div:hover div.info {
+div.resumeDiv div.resume:hover div.info {
   transform: skew(0deg) translateY(0%) !important;
 }
 @media screen and (max-width: 720px) {
