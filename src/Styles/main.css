@@ -428,7 +428,7 @@ div.homeDiv div.homeSection {
   padding: 3vw;
   box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
   border: 2px solid black;
-  animation: 0.5s ease-out 0s 1 homeSlideIn;
+  animation: 0.5s ease-out 0s 1 slideIn;
   z-index: 10;
   animation-fill-mode: forwards !important;
   transform: translateX(-100vw);
@@ -436,7 +436,7 @@ div.homeDiv div.homeSection {
 }
 div.homeDiv div.homeSection.inactive {
   transform: translateX(0);
-  animation: 0.5s ease-out 0s 1 homeSlideOut;
+  animation: 0.5s ease-out 0s 1 slideOut;
   z-index: 0;
 }
 div.homeDiv div.homeSection *,
@@ -481,12 +481,12 @@ div.homeDiv div.homeSection li span {
     transform: skew(-10deg) !important;
     transition: transform 5s;
     margin-top: 1rem;
-    animation: 0.5s ease-out 0s 1 homeSlideIn;
+    animation: 0.5s ease-out 0s 1 slideIn;
     animation-fill-mode: forwards !important;
   }
   div.homeDiv div.homeSection.leave {
     transform: translateX(0);
-    animation: 0.5s ease-out 0s 1 homeSlideOut;
+    animation: 0.5s ease-out 0s 1 slideOut;
     display: none !important;
   }
   div.homeDiv div.homeSection *,
@@ -532,7 +532,7 @@ div.homeDiv div.homeSection li {
   animation-delay: 0.2s !important;
 }
 
-@keyframes homeSlideIn {
+@keyframes slideIn {
   0% {
     transform: translateX(-100vw);
   }
@@ -540,7 +540,7 @@ div.homeDiv div.homeSection li {
     transform: translateX(0);
   }
 }
-@keyframes homeSlideOut {
+@keyframes slideOut {
   0% {
     transform: translateX(0);
   }
@@ -567,7 +567,10 @@ div.contactDiv form#emailForm {
   border: 2px solid black;
   box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
   animation-fill-mode: forwards !important;
-  transform: translateX(-100vw);
+  animation: 0.5s ease-out 0s 1 slideIn;
+}
+div.contactDiv form#emailForm.inactive {
+  animation: 0.5s ease-out 0s 1 slideOut;
 }
 div.contactDiv form#emailForm *:focus {
   outline: none;
@@ -610,15 +613,7 @@ div.contactDiv form#emailForm button:hover {
     bottom: 1vw;
   }
 }
-div.contactDiv form#emailForm.active {
-  animation: 0.5s ease-out 0s 1 contactSlideIn;
-  z-index: 10 !important;
-}
-div.contactDiv form#emailForm.inactive {
-  animation: 0.5s ease-out 0s 1 contactSlideOut;
-  z-index: 0 !important;
-}
-@keyframes contactSlideIn {
+@keyframes slideIn {
   0% {
     transform: translateX(-100vw);
     display: block;
@@ -627,13 +622,12 @@ div.contactDiv form#emailForm.inactive {
     transform: translateX(0);
   }
 }
-@keyframes contactSlideOut {
+@keyframes slideOut {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-100vw);
-    display: none;
   }
 }
 
@@ -650,6 +644,7 @@ div.projectDiv {
   flex-direction: row-reverse;
 }
 div.projectDiv div.project {
+  animation: 0.5s ease-out 0s 1 slideIn;
   order: 1;
   margin: 1vw;
   width: 25vw;
@@ -667,16 +662,10 @@ div.projectDiv div.project {
 div.projectDiv div.project.reordered {
   order: 3;
 }
-div.projectDiv div.project.active {
-  animation: 0.5s ease-out 0s 1 projectSlideIn;
-  z-index: 10;
-}
 div.projectDiv div.project.inactive {
-  transform: translateX(0);
-  animation: 0.5s ease-out 0s 1 projectSlideOut;
-  z-index: 0;
+  animation: 0.5s ease-out 0s 1 slideOut;
 }
-@keyframes projectSlideIn {
+@keyframes slideIn {
   0% {
     transform: translateX(-100vw);
   }
@@ -684,13 +673,12 @@ div.projectDiv div.project.inactive {
     transform: translateX(0);
   }
 }
-@keyframes projectSlideOut {
+@keyframes slideOut {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-100vw);
-    display: none !important;
   }
 }
 div.projectDiv div.project *,
@@ -866,6 +854,7 @@ div.resumeDiv div.resume {
   padding: 1vw;
   box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
   border: 2px solid black;
+  animation: 0.5s ease-out 0s 1 slideIn;
   animation-fill-mode: forwards !important;
   transform: translateX(-100vw);
   overflow: hidden;
@@ -897,16 +886,7 @@ div.resumeDiv div.resume.double .lists h3 {
   margin: 0;
   padding: 0;
 }
-div.resumeDiv div.resume.active {
-  animation: 0.5s ease-out 0s 1 projectSlideIn;
-  z-index: 10 !important;
-}
-div.resumeDiv div.resume.inactive {
-  transform: translateX(0);
-  animation: 0.5s ease-out 0s 1 projectSlideOut;
-  z-index: 0 !important;
-}
-@keyframes projectSlideIn {
+@keyframes slideIn {
   0% {
     transform: translateX(-100vw);
   }
@@ -914,13 +894,12 @@ div.resumeDiv div.resume.inactive {
     transform: translateX(0);
   }
 }
-@keyframes projectSlideOut {
+@keyframes slideOut {
   0% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(-100vw);
-    display: none !important;
   }
 }
 div.resumeDiv div.resume h1 {
@@ -958,31 +937,34 @@ div.resumeDiv div.resume:hover div.info {
     left: 60px !important;
     transform: skew(0deg) !important;
   }
-  div.resumeDiv div {
+  div.resumeDiv div.resume {
     transform: skew(-10deg) !important;
-    transition: transform 5s;
+    transition: transform 1s;
     margin-top: 1rem;
-    width: 70vw;
+    width: 75vw;
     min-height: 150px;
     animation: 0.5s ease-out 0s 1 homeSlideIn;
     animation-fill-mode: forwards !important;
   }
-  div.resumeDiv div.double {
-    height: calc((15vw + 8vh) * 2);
+  div.resumeDiv div.resume.double {
+    height: auto;
     min-height: 300px;
   }
-  div.resumeDiv div.inactive {
+  div.resumeDiv div.resume.double .lists {
+    flex-wrap: wrap;
+  }
+  div.resumeDiv div.resume.inactive {
     transform: translateX(0);
     animation: 0.5s ease-out 0s 1 homeSlideOut;
     display: none !important;
   }
-  div.resumeDiv div *,
-div.resumeDiv div *::after,
-div.resumeDiv div *::before {
+  div.resumeDiv div.resume *,
+div.resumeDiv div.resume *::after,
+div.resumeDiv div.resume *::before {
     transform: skew(10deg) !important;
   }
-  div.resumeDiv div p,
-div.resumeDiv div li {
+  div.resumeDiv div.resume p,
+div.resumeDiv div.resume li {
     font-size: calc(1.25vw + 1.25vh) !important;
   }
 }

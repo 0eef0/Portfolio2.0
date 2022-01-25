@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Minesweeper from '../Images/Minesweeper.PNG';
 import Portfolio1 from '../Images/Portfolio1.0.PNG';
-import charDex from '../Images/charmanderDex.PNG';
+import mkwiirand from '../Images/mkwiirand.png';
 import hummus from "../Images/baby'sFirst.PNG";
 import mkwiiapi from '../Images/mkwiiapi.PNG';
 
@@ -67,12 +67,12 @@ const Projects = () => {
 
             {/* Charmander Pokedex */}
             <div className='project reordered'>
-                <img src={charDex} alt="Charmander Data" />
+                <img src={mkwiirand} alt="Mario Kart Wii Randomizer" />
                 <div className="info">
-                    <h1>Charmander Pokedex</h1>
-                    <p>Want to know more about the Charmander evolution line? This basic Vue project will fulfill all of your Charmander knowledge desires.</p>
-                    <a href="https://github.com/Giles-Aiden/pokemon-json" target="_blank" rel="noreferrer"><button style={{left:'10%'}}><p>See the Repo</p></button></a>
-                    <a href="https://giles-aiden.github.io/pokemon-json/#/" target="_blank" rel="noreferrer"><button style={{right:'10%'}}><p>Visit Site</p></button></a>
+                    <h1>MKWii Randomizer</h1>
+                    <p>Mario Kart Wii is just too easy. That's why I made this randomizer. Playing with the not flame runner is actually challenging.</p>
+                    <a href="https://github.com/TheCapn-MEC/MKWiiRNG/tree/master" target="_blank" rel="noreferrer"><button style={{left:'10%'}}><p>See the Repo</p></button></a>
+                    <a href="https://mkwiirandomizer.netlify.app/" target="_blank" rel="noreferrer"><button style={{right:'10%'}}><p>Visit Site</p></button></a>
                 </div>
             </div>
 

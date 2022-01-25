@@ -20,12 +20,12 @@ div.homeDiv {
     padding: 3vw;
     box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #000000, $alpha: 0.75);
     border: 2px solid black;
-    animation: 0.5s ease-out 0s 1 homeSlideIn;
+    animation: 0.5s ease-out 0s 1 slideIn;
     z-index: 10;
     // when applied, this slides each home box out to the left
     &.inactive {
       transform: translateX(0);
-      animation: 0.5s ease-out 0s 1 homeSlideOut;
+      animation: 0.5s ease-out 0s 1 slideOut;
       z-index: 0;
     }
     animation-fill-mode: forwards !important;
@@ -80,12 +80,12 @@ div.homeDiv {
         transform: skew(-10deg) !important;
         transition: transform 5s;
         margin-top: 1rem;
-        animation: 0.5s ease-out 0s 1 homeSlideIn;
+        animation: 0.5s ease-out 0s 1 slideIn;
         animation-fill-mode: forwards !important;
 
         &.leave {
           transform: translateX(0);
-          animation: 0.5s ease-out 0s 1 homeSlideOut;
+          animation: 0.5s ease-out 0s 1 slideOut;
           display: none !important;
         }
 
@@ -114,7 +114,7 @@ div.homeDiv {
 }
 
 // animations for sliding in and sliding out
-@keyframes homeSlideIn {
+@keyframes slideIn {
   0% {
     transform: translateX(-100vw);
   }
@@ -122,7 +122,7 @@ div.homeDiv {
     transform: translateX(0);
   }
 }
-@keyframes homeSlideOut {
+@keyframes slideOut {
   0% {
     transform: translateX(0);
   }
