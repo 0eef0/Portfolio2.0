@@ -575,6 +575,13 @@ div.contactDiv form#emailForm.inactive {
 div.contactDiv form#emailForm *:focus {
   outline: none;
 }
+div.contactDiv form#emailForm h1 {
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px solid black;
+  padding: 0.5vw;
+  text-align: center;
+}
 div.contactDiv form#emailForm input {
   width: 100%;
   height: 10%;
@@ -583,7 +590,7 @@ div.contactDiv form#emailForm input {
 }
 div.contactDiv form#emailForm textarea {
   width: 100%;
-  height: 70%;
+  height: 60%;
   padding: 1vw;
   resize: none;
   border-bottom: 2px solid black;
