@@ -22,14 +22,21 @@ div.projectDiv {
     min-height: 200px;
     height: calc(15vw + 8vh);
     padding: 0;
-    box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #000000, $alpha: 0.75);
-    border: 2px solid black;
+    box-shadow: inset 0 0 2.5vw #fff, /* inner white */ inset 1vw 0 4vw #f0f,
+      /* inner left magenta short */ inset -1vw 0 4vw #f00,
+      /* inner right cyan short */ inset 1vw 0 15vw #f0f,
+      /* inner left magenta broad */ inset -1vw 0 15vw #f00,
+      /* inner right cyan broad */ 0 0 2.5vw #fff,
+      /* outer white */ -0.5vw 0 4vw #f0f,
+      /* outer left magenta */ 0.5vw 0 4vw #f00;
+    border: 2px solid white;
     background-color: #222222;
     animation-fill-mode: forwards !important;
     transform: translateX(-100vw);
     overflow: hidden;
 
     &.inactive {
+      transform: translateX(0);
       animation: 0.5s ease-out 0s 1 slideOut;
     }
 
@@ -63,7 +70,6 @@ div.projectDiv {
       display: block;
       top: 0;
       left: 0;
-      box-shadow: 0.1vw 0 1vw 0.1vw black;
     }
     &:hover {
       div.info {
@@ -77,13 +83,16 @@ div.projectDiv {
       transform: skew(0deg) translateY(100%) !important;
       transition: transform 0.3s;
       border: none;
-      background-color: rgba($color: #fff, $alpha: 0.75);
+      background-color: rgba($color: #222, $alpha: 0.75);
+      color: white;
       margin: 0;
       padding: 1vw;
       top: 0;
       left: 0;
       h1 {
         font-size: calc(2vw + 2vh);
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+          0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
       }
       ul {
         list-style-type: circle;
@@ -96,7 +105,7 @@ div.projectDiv {
         font-size: calc(0.75vw + 0.75vh);
       }
       button {
-        background-color: black;
+        border: 2px solid white;
         color: white;
         padding: 0.5vw;
         transform: skew(-2.5deg) !important;

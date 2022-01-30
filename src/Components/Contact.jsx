@@ -22,7 +22,7 @@ const Contact = () => {
     return (
         <div className='contactDiv'>
             <form id='emailForm' ref={form} onSubmit={sendEmail}>
-                <h1>Fill out to reach me!</h1>
+                <h1>Fill <span className="flicker">out</span> to reach me!</h1>
                 <input type='text' placeholder='Name' id='name' name="name" style={{fontFamily: 'Arial'}} />
                 <input type='email' placeholder='Email' id='email' name="user_email" style={{fontFamily: 'Arial'}} />
                 <input type='text' placeholder='Subject' id='subject' name="subject" style={{fontFamily: 'Arial'}} />

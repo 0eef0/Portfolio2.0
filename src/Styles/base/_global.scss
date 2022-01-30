@@ -15,6 +15,32 @@
 body,
 html {
   overflow-x: hidden !important;
+  background-color: $dark-background;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  9% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  13% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 1;
+  }
+}
+
+span.flicker {
+  animation: flicker 2s infinite;
 }
 
 // body {

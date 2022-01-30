@@ -16,10 +16,23 @@ div.resumeDiv {
     min-width: 200px;
     height: calc(15vw + 8vh);
     padding: 1vw;
-    box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #000000, $alpha: 0.75);
+    //box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #000000, $alpha: 0.75);
+    box-shadow: inset 0 0 2.5vw #fff, /* inner white */ inset 1vw 0 4vw #f0f,
+      /* inner left magenta short */ inset -1vw 0 4vw #f00,
+      /* inner right cyan short */ inset 1vw 0 15vw #f0f,
+      /* inner left magenta broad */ inset -1vw 0 15vw #f00,
+      /* inner right cyan broad */ 0 0 2.5vw #fff,
+      /* outer white */ -0.5vw 0 4vw #f0f,
+      /* outer left magenta */ 0.5vw 0 4vw #f00;
     //background-color: rgba($color: #000000, $alpha: 0.3);
-    border: 2px solid black;
+    border: 2px solid white;
     animation: 0.5s ease-out 0s 1 slideIn;
+    color: white;
+    h1 {
+      font-size: calc(2vw + 2vh);
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+        0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
     &.double {
       width: 72vw;
       div {
@@ -50,6 +63,11 @@ div.resumeDiv {
     animation-fill-mode: forwards !important;
     transform: translateX(-100vw);
     overflow: hidden;
+
+    &.inactive {
+      transform: translateX(0);
+      animation: 0.5s ease-out 0s 1 slideOut;
+    }
 
     @keyframes slideIn {
       0% {
@@ -120,10 +138,10 @@ div.resumeDiv {
           }
         }
 
-        animation: 0.5s ease-out 0s 1 homeSlideIn;
+        animation: 0.5s ease-out 0s 1 slideIn;
         &.inactive {
           transform: translateX(0);
-          animation: 0.5s ease-out 0s 1 homeSlideOut;
+          animation: 0.5s ease-out 0s 1 slideOut;
           display: none !important;
         }
         animation-fill-mode: forwards !important;

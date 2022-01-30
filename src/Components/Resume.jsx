@@ -13,7 +13,7 @@ const Resume = () => {
     return (
         <div className='resumeDiv' style={{left: `${left * 0.025}%`}}>
             <div className='resume single'>
-                <h1>Education</h1>
+                <h1><span className="flicker">Education</span></h1>
                 <ul>
                     <li>Attends Mountain Ridge High School</li>
                     <ul>
@@ -44,7 +44,7 @@ const Resume = () => {
                 </ul>
             </div>
             <div className='resume single'>
-                <h1>Community Service</h1>
+                <h1>Community <span className="flicker">Service</span></h1>
                 <ul>
                     <li>Frequent tutor at West-MEC</li>
                     <li>Always helps out at West-MEC special events</li>
@@ -53,7 +53,7 @@ const Resume = () => {
                 </ul>
             </div>
             <div className='resume double'>
-                <h1>Experience/Certs</h1>
+                <h1><span className="flicker">Experience</span>/Certs</h1>
                 <div className='lists'>
                     <div className='experience'>
                         <h3>West-MEC Coding Student</h3>
@@ -77,7 +77,7 @@ const Resume = () => {
                 </div>
             </div>
             <div className='resume double'>
-                <h1>Work History</h1>
+                <h1>Work <span className="flicker">History</span></h1>
                 <p>Will add to this when there is stuff to add</p>
             </div>
         </div>

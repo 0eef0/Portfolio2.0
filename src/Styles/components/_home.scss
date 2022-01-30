@@ -1,3 +1,5 @@
+@import "../util/variables";
+
 div.homeDiv {
   // General styling for the home page
   position: absolute;
@@ -13,13 +15,15 @@ div.homeDiv {
 
   // styling for each box of the home page
   div.homeSection {
+    color: white;
     margin: 1vw;
     width: 40vw;
     min-width: 250px;
     height: 40vh;
     padding: 3vw;
-    box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #000000, $alpha: 0.75);
-    border: 2px solid black;
+    //box-shadow: 0.75vw 0.75vw 0 0 rgba($color: #0f0, $alpha: 0.75);
+    box-shadow: $red-neon-shadow;
+    border: 2px solid #fff;
     animation: 0.5s ease-out 0s 1 slideIn;
     z-index: 10;
     // when applied, this slides each home box out to the left
@@ -51,6 +55,9 @@ div.homeDiv {
     // more general styling for each box
     h1 {
       font-size: calc(2vw + 2vh);
+      color: #fff;
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+        0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
     }
     ul {
       list-style-type: circle;
@@ -62,7 +69,7 @@ div.homeDiv {
     li {
       font-size: calc(0.75vw + 0.75vh);
       span {
-        border: 2px solid black;
+        border: 2px solid white;
         padding: 0.1vw;
         border-radius: 50%;
         font-weight: 700 !important;

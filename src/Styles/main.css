@@ -12,6 +12,7 @@
 /* grey used for paragraphs */
 /* lightest grey - used for outlines */
 /* Other Colors used */
+/* Background colors */
 .menu li {
   top: 100%;
   left: 0;
@@ -28,6 +29,7 @@
   position: relative;
 }
 
+/* outer right cyan */
 *,
 *::after,
 *::before {
@@ -217,75 +219,31 @@ input[type=button] {
 body,
 html {
   overflow-x: hidden !important;
+  background-color: #222;
 }
 
-.container {
-  width: 90vw;
-  margin: 5rem 0;
-  max-width: 620px;
-  background-color: #fff;
-  border-radius: 0.25rem;
-  padding: 1.5rem 2rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-.container h3 {
-  font-weight: normal;
-  text-transform: none;
-  margin-bottom: 2rem;
-}
-.container .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.section {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-}
-
-@media only screen and (min-width: 1024px) {
-  .section {
-    width: 95vw;
+@keyframes flicker {
+  0% {
+    opacity: 0;
+  }
+  9% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  13% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 1;
   }
 }
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  width: 12rem;
-  border-color: transparent;
-  background: #3b85ce;
-  font-weight: 700;
-  transition: all 0.5s linear;
-  border-radius: 0.25rem;
-  color: #cee0f3;
-  margin-left: 1rem;
-  align-self: center;
-  min-width: 2rem;
-}
-.btn:hover {
-  color: #1e4a76;
-  background: #b1cfec;
-}
-
-.loading {
-  text-align: center;
-}
-
-.underline {
-  width: 5rem;
-  height: 0.25rem;
-  margin-bottom: 1.25rem;
-  background: #3b85ce;
-}
-
-.title {
-  margin-bottom: 4rem;
-  text-align: center;
+span.flicker {
+  animation: flicker 2s infinite;
 }
 
 @font-face {
@@ -312,8 +270,11 @@ div#navbar {
   justify-content: flex-start;
   background-color: #222222;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  transition: box-shadow 2.5s;
 }
 div#navbar:hover {
+  box-shadow: inset 0 0 2.5vw #fff, inset 1vw 0 4vw #f0f, inset -1vw 0 4vw #ac0ce8, inset 1vw 0 15vw #f0f, inset -1vw 0 15vw #ac0ce8, 0 0 2.5vw #fff, -0.5vw 0 4vw #f0f, 0.5vw 0 4vw #ac0ce8;
+  /* outer right cyan */
   width: 20vw;
 }
 div#navbar:hover div {
@@ -331,18 +292,8 @@ div#navbar div {
   height: 100vh;
   transform: skew(0);
   transition: transform 0.3s;
-}
-div#navbar div:nth-child(4n+1) {
-  background-color: #568e90;
-}
-div#navbar div:nth-child(4n+2) {
-  background-color: #4c7e80;
-}
-div#navbar div:nth-child(4n+3) {
-  background-color: #436f70;
-}
-div#navbar div:nth-child(4n+4) {
-  background-color: #395f60;
+  background-color: #222;
+  border-right: 2px white solid;
 }
 div#navbar div h1 {
   transform: rotate(-90deg);
@@ -352,6 +303,7 @@ div#navbar div h1 {
   margin-top: 30vh;
   margin-bottom: auto;
   font-weight: bolder;
+  color: white;
 }
 div#navbar div::after {
   position: absolute;
@@ -372,6 +324,9 @@ div#navbar div.primary {
   display: block;
   width: 100%;
   box-shadow: 1vw 0 1vw 0.1vw black !important;
+}
+div#navbar div.primary h1 {
+  text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
 }
 div#navbar div:first-of-type {
   box-shadow: -1vw 0 1vw 0.1vw black !important;
@@ -408,6 +363,22 @@ div#navbar section#mediaLinks a:visited {
   }
 }
 
+/* Blues */
+/* Greens */
+/* Yellows */
+/* Misc */
+/* dark shades of primary color*/
+/* The primary/main color */
+/* lighter shades of primary color */
+/* dark shades of secondary color*/
+/* secondary color */
+/* lighter shades of secondary color */
+/* darkest grey - used for headings */
+/* grey used for paragraphs */
+/* lightest grey - used for outlines */
+/* Other Colors used */
+/* Background colors */
+/* outer right cyan */
 div.homeDiv {
   position: absolute;
   left: 100px;
@@ -421,13 +392,14 @@ div.homeDiv {
   z-index: 10;
 }
 div.homeDiv div.homeSection {
+  color: white;
   margin: 1vw;
   width: 40vw;
   min-width: 250px;
   height: 40vh;
   padding: 3vw;
-  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
-  border: 2px solid black;
+  box-shadow: inset 0 0 2.5vw #fff, inset 1vw 0 4vw #f0f, inset -1vw 0 4vw #f00, inset 1vw 0 15vw #f0f, inset -1vw 0 15vw #f00, 0 0 2.5vw #fff, -0.5vw 0 4vw #f0f, 0.5vw 0 4vw #f00;
+  border: 2px solid #fff;
   animation: 0.5s ease-out 0s 1 slideIn;
   z-index: 10;
   animation-fill-mode: forwards !important;
@@ -453,6 +425,8 @@ div.homeDiv div.homeSection img {
 }
 div.homeDiv div.homeSection h1 {
   font-size: calc(2vw + 2vh);
+  color: #fff;
+  text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
 }
 div.homeDiv div.homeSection ul {
   list-style-type: circle;
@@ -466,7 +440,7 @@ div.homeDiv div.homeSection li {
 }
 div.homeDiv div.homeSection p span,
 div.homeDiv div.homeSection li span {
-  border: 2px solid black;
+  border: 2px solid white;
   padding: 0.1vw;
   border-radius: 50%;
   font-weight: 700 !important;
@@ -564,8 +538,10 @@ div.contactDiv:has(div#emailForm.active) {
 div.contactDiv form#emailForm {
   width: 80vw;
   height: 70vh;
-  border: 2px solid black;
-  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
+  text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  color: white;
+  border: 2px solid white;
+  box-shadow: inset 0 0 2.5vw #fff, inset 1vw 0 4vw #f0f, inset -1vw 0 4vw #f00, inset 1vw 0 15vw #f0f, inset -1vw 0 15vw #f00, 0 0 2.5vw #fff, -0.5vw 0 4vw #f0f, 0.5vw 0 4vw #f00;
   animation-fill-mode: forwards !important;
   animation: 0.5s ease-out 0s 1 slideIn;
 }
@@ -578,31 +554,40 @@ div.contactDiv form#emailForm *:focus {
 div.contactDiv form#emailForm h1 {
   width: 100%;
   height: 10%;
-  border-bottom: 2px solid black;
-  padding: 0.5vw;
+  border-bottom: 2px solid white;
   text-align: center;
+  font-size: calc(2vw + 2vh);
 }
 div.contactDiv form#emailForm input {
   width: 100%;
   height: 10%;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
+  color: inherit;
   padding: 1vw;
+}
+div.contactDiv form#emailForm input::placeholder {
+  color: inherit;
 }
 div.contactDiv form#emailForm textarea {
   width: 100%;
   height: 60%;
   padding: 1vw;
+  color: inherit;
   resize: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
+}
+div.contactDiv form#emailForm textarea::placeholder {
+  color: inherit;
 }
 div.contactDiv form#emailForm button {
   position: absolute;
   bottom: 1vw;
-  border: 2px solid black;
+  border: 2px solid white;
   right: 1vw;
   width: 10%;
   height: 5%;
   padding: 0.1vw;
+  color: inherit;
   text-align: center;
   animation: animate 1.5s ease-in infinite;
 }
@@ -659,8 +644,8 @@ div.projectDiv div.project {
   min-height: 200px;
   height: calc(15vw + 8vh);
   padding: 0;
-  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
-  border: 2px solid black;
+  box-shadow: inset 0 0 2.5vw #fff, inset 1vw 0 4vw #f0f, inset -1vw 0 4vw #f00, inset 1vw 0 15vw #f0f, inset -1vw 0 15vw #f00, 0 0 2.5vw #fff, -0.5vw 0 4vw #f0f, 0.5vw 0 4vw #f00;
+  border: 2px solid white;
   background-color: #222222;
   animation-fill-mode: forwards !important;
   transform: translateX(-100vw);
@@ -670,6 +655,7 @@ div.projectDiv div.project.reordered {
   order: 3;
 }
 div.projectDiv div.project.inactive {
+  transform: translateX(0);
   animation: 0.5s ease-out 0s 1 slideOut;
 }
 @keyframes slideIn {
@@ -701,7 +687,6 @@ div.projectDiv div.project img {
   display: block;
   top: 0;
   left: 0;
-  box-shadow: 0.1vw 0 1vw 0.1vw black;
 }
 div.projectDiv div.project:hover div.info {
   transform: skew(0deg) translateY(0%) !important;
@@ -713,7 +698,8 @@ div.projectDiv div.project div.info {
   transform: skew(0deg) translateY(100%) !important;
   transition: transform 0.3s;
   border: none;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(34, 34, 34, 0.75);
+  color: white;
   margin: 0;
   padding: 1vw;
   top: 0;
@@ -721,6 +707,7 @@ div.projectDiv div.project div.info {
 }
 div.projectDiv div.project div.info h1 {
   font-size: calc(2vw + 2vh);
+  text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
 }
 div.projectDiv div.project div.info ul {
   list-style-type: circle;
@@ -733,7 +720,7 @@ div.projectDiv div.project div.info li {
   font-size: calc(0.75vw + 0.75vh);
 }
 div.projectDiv div.project div.info button {
-  background-color: black;
+  border: 2px solid white;
   color: white;
   padding: 0.5vw;
   transform: skew(-2.5deg) !important;
@@ -859,12 +846,17 @@ div.resumeDiv div.resume {
   min-width: 200px;
   height: calc(15vw + 8vh);
   padding: 1vw;
-  box-shadow: 0.75vw 0.75vw 0 0 rgba(0, 0, 0, 0.75);
-  border: 2px solid black;
+  box-shadow: inset 0 0 2.5vw #fff, inset 1vw 0 4vw #f0f, inset -1vw 0 4vw #f00, inset 1vw 0 15vw #f0f, inset -1vw 0 15vw #f00, 0 0 2.5vw #fff, -0.5vw 0 4vw #f0f, 0.5vw 0 4vw #f00;
+  border: 2px solid white;
   animation: 0.5s ease-out 0s 1 slideIn;
+  color: white;
   animation-fill-mode: forwards !important;
   transform: translateX(-100vw);
   overflow: hidden;
+}
+div.resumeDiv div.resume h1 {
+  font-size: calc(2vw + 2vh);
+  text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
 }
 div.resumeDiv div.resume.double {
   width: 72vw;
@@ -892,6 +884,10 @@ div.resumeDiv div.resume.double .lists h3 {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+div.resumeDiv div.resume.inactive {
+  transform: translateX(0);
+  animation: 0.5s ease-out 0s 1 slideOut;
 }
 @keyframes slideIn {
   0% {
@@ -950,7 +946,7 @@ div.resumeDiv div.resume:hover div.info {
     margin-top: 1rem;
     width: 75vw;
     min-height: 150px;
-    animation: 0.5s ease-out 0s 1 homeSlideIn;
+    animation: 0.5s ease-out 0s 1 slideIn;
     animation-fill-mode: forwards !important;
   }
   div.resumeDiv div.resume.double {
@@ -962,7 +958,7 @@ div.resumeDiv div.resume:hover div.info {
   }
   div.resumeDiv div.resume.inactive {
     transform: translateX(0);
-    animation: 0.5s ease-out 0s 1 homeSlideOut;
+    animation: 0.5s ease-out 0s 1 slideOut;
     display: none !important;
   }
   div.resumeDiv div.resume *,

@@ -29,7 +29,7 @@ const Projects = () => {
                     color:'white',
                     fontSize:'calc(2vw + 2vh)',
                     textAlign:'center',
-                }}>More to come soon!</h1>
+                }}>More to <span className="flicker">come</span> soon!</h1>
             </div>
 
             {/* Minesweeper */}
