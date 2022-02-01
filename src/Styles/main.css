@@ -242,7 +242,7 @@ html {
     opacity: 1;
   }
 }
-span.flicker {
+.flicker {
   animation: flicker 2s infinite;
 }
 
@@ -449,11 +449,11 @@ div.homeDiv div.homeSection li span {
   div.homeDiv {
     display: block;
     transform: skew(0deg) !important;
+    transition: transform 5s;
   }
   div.homeDiv div.homeSection {
     width: 80% !important;
     transform: skew(-10deg) !important;
-    transition: transform 5s;
     margin-top: 1rem;
     animation: 0.5s ease-out 0s 1 slideIn;
     animation-fill-mode: forwards !important;
@@ -509,9 +509,11 @@ div.homeDiv div.homeSection li {
 @keyframes slideIn {
   0% {
     transform: translateX(-100vw);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 @keyframes slideOut {
@@ -644,7 +646,7 @@ div.projectDiv div.project {
   min-height: 200px;
   height: calc(15vw + 8vh);
   padding: 0;
-  box-shadow: inset 0 0 2.5vw #fff, inset 1vw 0 4vw #f0f, inset -1vw 0 4vw #f00, inset 1vw 0 15vw #f0f, inset -1vw 0 15vw #f00, 0 0 2.5vw #fff, -0.5vw 0 4vw #f0f, 0.5vw 0 4vw #f00;
+  box-shadow: inset 0 0 1.25vw #fff, inset 0.5vw 0 2vw #f0f, inset -0.5vw 0 2vw #f00, inset 0.5vw 0 7.5vw #f0f, inset -0.5vw 0 7.5vw #f00, 0 0 1.25vw #fff, -0.25vw 0 2vw #f0f, 0.25vw 0 2vw #f00;
   border: 2px solid white;
   background-color: #222222;
   animation-fill-mode: forwards !important;
@@ -706,8 +708,11 @@ div.projectDiv div.project div.info {
   left: 0;
 }
 div.projectDiv div.project div.info h1 {
-  font-size: calc(2vw + 2vh);
+  font-size: calc(1.5vw + 1.5vh);
   text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+}
+div.projectDiv div.project div.info h3 {
+  font-size: calc(1vw+1vh);
 }
 div.projectDiv div.project div.info ul {
   list-style-type: circle;

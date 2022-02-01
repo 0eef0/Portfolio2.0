@@ -4,6 +4,7 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 const Navbar = () => {
     const currPage = window.location.pathname;
     const changePage = (page) => {
+        document.getElementsByClassName('primary')[0].classList.add('flicker');
         switch(currPage){
             case '/':
                 let home = document.getElementsByClassName('homeSection');

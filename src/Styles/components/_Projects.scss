@@ -22,13 +22,13 @@ div.projectDiv {
     min-height: 200px;
     height: calc(15vw + 8vh);
     padding: 0;
-    box-shadow: inset 0 0 2.5vw #fff, /* inner white */ inset 1vw 0 4vw #f0f,
-      /* inner left magenta short */ inset -1vw 0 4vw #f00,
-      /* inner right cyan short */ inset 1vw 0 15vw #f0f,
-      /* inner left magenta broad */ inset -1vw 0 15vw #f00,
-      /* inner right cyan broad */ 0 0 2.5vw #fff,
-      /* outer white */ -0.5vw 0 4vw #f0f,
-      /* outer left magenta */ 0.5vw 0 4vw #f00;
+    box-shadow: inset 0 0 1.25vw #fff, /* inner white */ inset 0.5vw 0 2vw #f0f,
+      /* inner left magenta short */ inset -0.5vw 0 2vw #f00,
+      /* inner right cyan short */ inset 0.5vw 0 7.5vw #f0f,
+      /* inner left magenta broad */ inset -0.5vw 0 7.5vw #f00,
+      /* inner right cyan broad */ 0 0 1.25vw #fff,
+      /* outer white */ -0.25vw 0 2vw #f0f,
+      /* outer left magenta */ 0.25vw 0 2vw #f00;
     border: 2px solid white;
     background-color: #222222;
     animation-fill-mode: forwards !important;
@@ -90,9 +90,12 @@ div.projectDiv {
       top: 0;
       left: 0;
       h1 {
-        font-size: calc(2vw + 2vh);
+        font-size: calc(1.5vw + 1.5vh);
         text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
           0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+      }
+      h3 {
+        font-size: calc(1vw+1vh);
       }
       ul {
         list-style-type: circle;
