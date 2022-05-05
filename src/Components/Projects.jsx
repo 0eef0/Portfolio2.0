@@ -29,7 +29,6 @@ const Projects = () => {
             </div>
             {
                 projectList.map((project) => {
-                    console.log(project);
                     const { projectName, projectImage, projectDesc, projectDate, projectRepo, projectLink } = project;
                     return (
                         <div key={projectName} className="project">

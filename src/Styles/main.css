@@ -918,8 +918,8 @@ div.resumeDiv div.resume h1 {
   font-size: calc(2vw + 2vh);
 }
 div.resumeDiv div.resume ul {
-  list-style-type: circle;
-  margin: 1vw;
+  list-style-type: none;
+  margin: 0.2vw;
 }
 div.resumeDiv div.resume ul li {
   transform: skew(0) !important;

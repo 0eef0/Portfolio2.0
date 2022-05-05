@@ -4,38 +4,6 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
 const Navbar = () => {
     const currPage = window.location.pathname;
-    const changePage = (page) => {
-        document.getElementsByClassName('primary')[0].classList.add('flicker');
-        switch(currPage){
-            case '/':
-                let home = document.getElementsByClassName('homeSection');
-                for(let i = 0; i < home.length; i++){
-                    home[i].classList.add('inactive');
-                }
-                break;
-            case '/projects':
-                let projects = document.getElementsByClassName('project');
-                for(let i = 0; i < projects.length; i++){
-                    projects[i].classList.add('inactive');
-                }
-                break;
-            case '/resume':
-                let resumes = document.getElementsByClassName('resume');
-                for(let i = 0; i < resumes.length; i++){
-                    resumes[i].classList.add('inactive');
-                }
-                break;
-            case '/contact':
-                let contact = document.getElementById('emailForm');
-                contact.classList.add('inactive');
-                break;
-            default:
-                break;
-        }
-        setTimeout(() => {
-            window.location.pathname = page;
-        }, 1000);
-    }
 
     return (
         <div id='navbar'>

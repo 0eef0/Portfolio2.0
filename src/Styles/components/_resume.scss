@@ -92,8 +92,8 @@ div.resumeDiv {
       font-size: calc(2vw + 2vh);
     }
     ul {
-      list-style-type: circle;
-      margin: 1vw;
+      list-style-type: none;
+      margin: 0.2vw;
       li {
         transform: skew(0) !important;
       }

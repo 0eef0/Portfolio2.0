@@ -21,6 +21,7 @@ const Resume = () => {
                             <li>4.41 Weighted GPA</li>
                             <li>Graduating in May 2022</li>
                     </ul>
+                    <li>Will attend Arizona State University starting Fall 2022</li>
                 </ul>
             </div>
             <div className='resume single'>
@@ -39,11 +40,13 @@ const Resume = () => {
             <div className='resume single'>
                 <h1>Awards</h1>
                 <ul>
+                    <li>National Society of High School Scholars - Member</li>
                     <li>FBLA Graphic Design Regionals 2021 - Third Place</li>
                     <li>FBLA Graphic Design State 2021 - Finalist</li>
                     <li>FBLA Public Speaking Regionals 2022 - First Place</li>
                     <li>FBLA Parliamentary Procedure Regionals 2022 - Second Place</li>
                     <li>FBLA UX Design State 2022 - Second Place</li>
+                    <li>FBLA Mobile App Development Nationals 2022 - Qualifier</li>
                 </ul>
             </div>
             <div className='resume single'>
