@@ -305,6 +305,10 @@ div#navbar div h1 {
   font-weight: bolder;
   color: white;
 }
+div#navbar div h1 a, div#navbar div h1 a:visited {
+  color: white;
+  text-decoration: none;
+}
 div#navbar div::after {
   position: absolute;
   bottom: 0;
@@ -670,10 +674,10 @@ div.projectDiv div.project.inactive {
 }
 @keyframes slideOut {
   0% {
-    transform: translateX(0);
+    opacity: 1;
   }
   100% {
-    transform: translateX(-100vw);
+    opacity: 0;
   }
 }
 div.projectDiv div.project *,
@@ -904,10 +908,10 @@ div.resumeDiv div.resume.inactive {
 }
 @keyframes slideOut {
   0% {
-    transform: translateX(0);
+    opacity: 1;
   }
   100% {
-    transform: translateX(-100vw);
+    opacity: 0;
   }
 }
 div.resumeDiv div.resume h1 {

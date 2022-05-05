@@ -63,6 +63,10 @@ div#navbar {
       margin-bottom: auto;
       font-weight: bolder;
       color: white;
+      a, a:visited {
+        color: white;
+        text-decoration: none;
+      }
     }
 
     &::after {

@@ -39,8 +39,11 @@ const Resume = () => {
             <div className='resume single'>
                 <h1>Awards</h1>
                 <ul>
-                    <li>FBLA Graphic Design Regionals - Third Place</li>
-                    <li>FBLA Graphic Design State - Finalist</li>
+                    <li>FBLA Graphic Design Regionals 2021 - Third Place</li>
+                    <li>FBLA Graphic Design State 2021 - Finalist</li>
+                    <li>FBLA Public Speaking Regionals 2022 - First Place</li>
+                    <li>FBLA Parliamentary Procedure Regionals 2022 - Second Place</li>
+                    <li>FBLA UX Design State 2022 - Second Place</li>
                 </ul>
             </div>
             <div className='resume single'>
@@ -76,10 +79,10 @@ const Resume = () => {
                     </div>
                 </div>
             </div>
-            <div className='resume double'>
+{/*             <div className='resume double'>
                 <h1>Work <span className="flicker">History</span></h1>
                 <p>Will add to this when there is stuff to add</p>
-            </div>
+            </div> */}
         </div>
     )
 }

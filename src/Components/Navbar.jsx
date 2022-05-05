@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 
 const Navbar = () => {
@@ -38,10 +39,10 @@ const Navbar = () => {
 
     return (
         <div id='navbar'>
-            <div className={(currPage === '/') ? 'primary' : '' } onClick={() => {changePage('/')}}><h1>Home</h1></div>
-            <div className={(currPage === '/projects') ? 'primary' : '' } onClick={() => {changePage('/projects')}}><h1>Projects</h1></div>
-            <div className={(currPage === '/resume') ? 'primary' : '' } onClick={() => {changePage('/resume')}}><h1>Resume</h1></div>
-            <div className={(currPage === '/contact') ? 'primary' : '' } onClick={() => {changePage('/contact')}}><h1>Contact</h1></div>
+            <div className={(currPage === '/') ? 'primary' : '' }><h1><Link to='/'>Home</Link></h1></div>
+            <div className={(currPage === '/projects') ? 'primary' : '' }><h1><Link to='/projects'>Projects</Link></h1></div>
+            <div className={(currPage === '/resume') ? 'primary' : '' }><h1><Link to='/resume'>Resume</Link></h1></div>
+            <div className={(currPage === '/contact') ? 'primary' : '' }><h1><Link to='/contact'>Contact</Link></h1></div>
 
             <section id='mediaLinks'>
                 <a href='https://github.com/TheCapn-MEC' target='_blank' rel='noreferrer'><AiFillGithub /></a>
